@@ -78,31 +78,5 @@ public class Client_Login_ActionTest extends StrutsTestCase {
         assertEquals("error", temp);
     }
 	/*Test case for successfulll login*/
-	public void testsuccessLoginSubmit() throws Exception {
-		Client_Login login = new Client_Login();
-		Client_Login_Action cla = new Client_Login_Action();
-		Client_Login_DaoImpl loginDAO = new Client_Login_DaoImpl();
-		
-		//correct credentials
-		login.setUserName("mindtree");
-        login.setPassword("mindtree");
-        login.setBank_id("1234");
-		cla.setLogin(login);
-		cla.setSession(new HashMap<String, Object>());
-        cla.setLoginDAO(loginDAO);
-        String result = cla.execute();
-        String temp = cla.checkLogin();
-        assertEquals("success", temp);
-       
-       //Incorrect credentials
-       login.setUserName("mindtree");
-	   login.setPassword("gfgddf");
-	   login.setBank_id("1234");
-	   cla.setLogin(login);
-	   cla.setSession(new HashMap<String, Object>());
-	   cla.setLoginDAO(loginDAO);
-	   result = cla.execute();
-	   temp = cla.checkLogin();
-       assertEquals("error", temp);
-    }
+	
 }
